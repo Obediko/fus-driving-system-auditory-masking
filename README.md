@@ -5,6 +5,15 @@ cortex focused-ultrasound protocol with matched headphone masking. This
 repository adapts the Radboud FUS Driving System for the Dortmund IGT D054
 generator and the Imasonic `IS_PCD15287_01005` transducer.
 
+**Author of this adaptation:** Obed Apochi, Ruhr University Bochum, Germany.
+
+The original contributions in this repository include the Dortmund-specific
+protocol integration, synchronized active/sham controller, reproducible masking
+workflow, safety checks, graphical interface, and accompanying research
+documentation. The Radboud driving software and the auditory-mask generator by
+Hira Musarrat and Benjamin Kop are acknowledged as separately authored
+upstream works.
+
 **Research use only.** This repository contains hardware-specific conversion
 files and third-party components with separate non-commercial licensing. Keep
 the repository private unless every relevant rights holder explicitly approves
@@ -124,8 +133,33 @@ The current test suite contains 19 checks for timing, 450-pulse protocol
 settings, reproducible active/sham masks, safe sham behavior, missing audio
 output, headphone-calibration gates, file-integrity checks, and error cleanup.
 
+## How to cite this adaptation
+
+When using this integrated Dortmund auditory-masking workflow, cite:
+
+> Apochi, O. (2026). *Focused Ultrasound Driving System with Synchronized
+> Auditory Masking for Active and Sham Entorhinal Cortex Stimulation*
+> (Version 1.0.0) [Computer software].
+> https://github.com/Obediko/fus-driving-system-auditory-masking
+
+GitHub can generate a formatted software citation from
+[`CITATION.cff`](CITATION.cff). A ready-to-use BibTeX entry is available in
+[`REFERENCES.bib`](REFERENCES.bib). The scientific rationale, implementation,
+limitations, and cited literature are presented in the accompanying research
+note, [`RESEARCH_NOTE.md`](RESEARCH_NOTE.md).
+
+This citation identifies the author of the integrated adaptation. It does not
+replace citation of the underlying Radboud software or the separately licensed
+auditory-mask generator when those components contribute to a publication.
+
 ## Repository contents and licensing
 
+- `CITATION.cff`: machine-readable citation naming Obed Apochi as author of
+  this integrated software adaptation.
+- `RESEARCH_NOTE.md`: concise paper-style description of the scientific
+  rationale, methods, validation, limitations, and references.
+- `REFERENCES.bib`: BibTeX citations for this software and relevant
+  methodological literature.
 - `AUDITORY_MASKING.md`: detailed installation, configuration, validation,
   synchronization, and research-use instructions.
 - `THIRD_PARTY_LICENSES.md`: separation of upstream MIT licensing from
@@ -148,7 +182,8 @@ and EULA in `fus_ds_package/fus_driving_systems/auditory_masking/_vendor/`.
 Commercial use of those components is prohibited without the authors' written
 permission.
 
-Please cite the upstream Radboud driving-system software and:
+In addition to the primary citation for this adaptation, cite the original
+Radboud driving-system software and the underlying masking component:
 
 > Musarrat, H., and Kop, B. *Auditory Mask Generator: NeuroFUS Edition*.
 > https://doi.org/10.5281/zenodo.20681923

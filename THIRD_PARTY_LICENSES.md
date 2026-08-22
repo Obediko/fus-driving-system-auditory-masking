@@ -1,5 +1,17 @@
 # Third-party licensing and attribution
 
+The integrated Dortmund auditory-masking adaptation, its protocol orchestration,
+graphical workflow, and project-specific documentation are attributed to
+**Obed Apochi**. Cite this adaptation as:
+
+> Apochi, O. (2026). *Focused Ultrasound Driving System with Synchronized
+> Auditory Masking for Active and Sham Entorhinal Cortex Stimulation*
+> (Version 1.0.0) [Computer software].
+> https://github.com/Obediko/fus-driving-system-auditory-masking
+
+Authorship of the adaptation does not transfer ownership of its upstream
+dependencies or remove their independent licensing and citation obligations.
+
 The original Radboud FUS Driving System remains governed by its root `LICENSE`
 (MIT), with copyright retained by Margely Cornelissen, Stein Fekkes, and Erik
 Dumont.

@@ -1,9 +1,17 @@
 # Auditory masking for the Dortmund IGT pmErC protocol
 
-This customization adapts Hira Musarrat and Benjamin Kop's auditory-mask
-generator for the existing Radboud FUS Driving System. It does not use or
-emulate the NeuroFUS TPO hardware interface. Active ultrasound remains under
-the original IGT D054 generator driver.
+This customization was developed by **Obed Apochi** for the Dortmund IGT D054
+workflow. It adapts Hira Musarrat and Benjamin Kop's separately authored
+auditory-mask generator for the existing Radboud FUS Driving System. It does
+not use or emulate the NeuroFUS TPO hardware interface. Active ultrasound
+remains under the original IGT D054 generator driver.
+
+The primary citation for the integrated implementation is:
+
+> Apochi, O. (2026). *Focused Ultrasound Driving System with Synchronized
+> Auditory Masking for Active and Sham Entorhinal Cortex Stimulation*
+> (Version 1.0.0) [Computer software].
+> https://github.com/Obediko/fus-driving-system-auditory-masking
 
 ## Fixed protocol and default waveform
 
@@ -171,7 +179,9 @@ separate license and EULA in:
 fus_ds_package/fus_driving_systems/auditory_masking/_vendor/
 ```
 
-Cite both the Radboud driving software and:
+Cite this integrated adaptation, the original Radboud driving software, and the
+underlying masking software when each materially contributes to the reported
+work. The upstream masking reference is:
 
 Hira Musarrat and Benjamin Kop. *Auditory Mask Generator – NeuroFUS Edition*.
 https://github.com/hiramusarrat8-beep/auditory-mask-generator-tpo.

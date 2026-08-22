@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: >-
+  If you use this Dortmund IGT focused-ultrasound and synchronized auditory
+  masking adaptation, please cite the software as specified below. Separately
+  acknowledge the upstream Radboud driver and the auditory masking software by
+  Hira Musarrat and Benjamin Kop when applicable.
+type: software
+title: >-
+  Focused Ultrasound Driving System with Synchronized Auditory Masking for Active
+  and Sham Entorhinal Cortex Stimulation
+authors:
+  - family-names: Apochi
+    given-names: Obed
+    affiliation: Ruhr University Bochum, Germany
+    website: https://github.com/Obediko
+version: 1.0.0
+date-released: 2026-08-22
+repository-code: https://github.com/Obediko/fus-driving-system-auditory-masking
+url: https://github.com/Obediko/fus-driving-system-auditory-masking
+abstract: >-
+  A research software adaptation integrating reproducible auditory masking,
+  fail-closed headphone checks, and active/sham orchestration with an Image
+  Guided Therapy D054 focused-ultrasound driving system. The reference protocol
+  targets the posterior-medial entorhinal cortex using a 300 kHz carrier, 5 Hz
+  pulse repetition frequency, 20 ms pulse duration, and 90 s stimulation.
+keywords:
+  - transcranial ultrasound stimulation
+  - focused ultrasound
+  - auditory masking
+  - sham stimulation
+  - entorhinal cortex
+  - neuromodulation
+  - research software
