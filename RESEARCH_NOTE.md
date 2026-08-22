@@ -1,6 +1,6 @@
 # Protocol-synchronized auditory masking for active and sham focused ultrasound stimulation of the human posterior-medial entorhinal cortex
 
-**Author:** Obed Apochi  
+**Authors:** Apochi Obed and Nikolai Axmacher  
 **Affiliation:** Ruhr University Bochum, Bochum, Germany  
 **Software version:** 1.0.0  
 **Repository:** https://github.com/Obediko/fus-driving-system-auditory-masking
@@ -141,9 +141,10 @@ that the posterior-medial entorhinal cortex has been successfully stimulated.
 
 ## Authorship and software provenance
 
-**Obed Apochi** designed the project-specific Dortmund adaptation, integrated
-the active/sham session workflow, configured the entorhinal stimulation
-protocol, and authored the accompanying implementation documentation.
+**Apochi Obed and Nikolai Axmacher** are the authors of this project-specific
+Dortmund adaptation and its accompanying research documentation. The adaptation
+includes the integrated active/sham session workflow, entorhinal stimulation
+protocol, reproducible masking controls, and project-specific documentation.
 
 The original Radboud FUS Driving System was developed by Margely Cornelissen,
 Stein Fekkes, and Erik Dumont. Auditory signal-generation components were
@@ -153,7 +154,7 @@ licensing, and citation requirements [11,12].
 
 ## Recommended citation
 
-Apochi, O. (2026). *Focused Ultrasound Driving System with Synchronized Auditory
+Apochi, O., & Axmacher, N. (2026). *Focused Ultrasound Driving System with Synchronized Auditory
 Masking for Active and Sham Entorhinal Cortex Stimulation* (Version 1.0.0)
 [Computer software]. https://github.com/Obediko/fus-driving-system-auditory-masking
 

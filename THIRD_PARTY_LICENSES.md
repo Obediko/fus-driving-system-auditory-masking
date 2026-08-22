@@ -2,9 +2,9 @@
 
 The integrated Dortmund auditory-masking adaptation, its protocol orchestration,
 graphical workflow, and project-specific documentation are attributed to
-**Obed Apochi**. Cite this adaptation as:
+**Apochi Obed and Nikolai Axmacher**. Cite this adaptation as:
 
-> Apochi, O. (2026). *Focused Ultrasound Driving System with Synchronized
+> Apochi, O., & Axmacher, N. (2026). *Focused Ultrasound Driving System with Synchronized
 > Auditory Masking for Active and Sham Entorhinal Cortex Stimulation*
 > (Version 1.0.0) [Computer software].
 > https://github.com/Obediko/fus-driving-system-auditory-masking
