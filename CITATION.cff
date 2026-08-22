@@ -18,8 +18,9 @@ authors:
     affiliation: Ruhr University Bochum, Germany
 version: 1.0.0
 date-released: 2026-08-22
+doi: 10.5281/zenodo.22059704
 repository-code: https://github.com/Obediko/fus-driving-system-auditory-masking
-url: https://github.com/Obediko/fus-driving-system-auditory-masking
+url: https://doi.org/10.5281/zenodo.22059704
 abstract: >-
   A research software adaptation integrating reproducible auditory masking,
   fail-closed headphone checks, and active/sham orchestration with an Image

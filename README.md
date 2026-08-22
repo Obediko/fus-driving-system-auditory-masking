@@ -1,5 +1,7 @@
 # Focused ultrasound driving system with synchronized auditory masking
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22059704.svg)](https://doi.org/10.5281/zenodo.22059704)
+
 Research software for delivering an active or sham posterior-medial entorhinal
 cortex focused-ultrasound protocol with matched headphone masking. This
 repository adapts the Radboud FUS Driving System for the Dortmund IGT D054
@@ -16,9 +18,9 @@ Hira Musarrat and Benjamin Kop are acknowledged as separately authored
 upstream works.
 
 **Research use only.** This repository contains hardware-specific conversion
-files and third-party components with separate non-commercial licensing. Keep
-the repository private unless every relevant rights holder explicitly approves
-redistribution. This software has not been validated as a medical device.
+files and third-party components with separate non-commercial licensing. Public
+redistribution requires authorization from every relevant rights holder. This
+software has not been validated as a medical device.
 
 ## Experimental protocol
 
@@ -141,7 +143,7 @@ When using this integrated Dortmund auditory-masking workflow, cite:
 > Apochi, O., & Axmacher, N. (2026). *Focused Ultrasound Driving System with Synchronized
 > Auditory Masking for Active and Sham Entorhinal Cortex Stimulation*
 > (Version 1.0.0) [Computer software].
-> https://github.com/Obediko/fus-driving-system-auditory-masking
+> https://doi.org/10.5281/zenodo.22059704
 
 GitHub can generate a formatted software citation from
 [`CITATION.cff`](CITATION.cff). A ready-to-use BibTeX entry is available in
@@ -185,19 +187,23 @@ permission.
 
 ## Publishing and citing a Zenodo release
 
+Version `v1.0.0` is archived as a public Zenodo software record:
+
+- DOI: https://doi.org/10.5281/zenodo.22059704
+- Zenodo record: https://zenodo.org/records/22059704
+- GitHub release: https://github.com/Obediko/fus-driving-system-auditory-masking/releases/tag/v1.0.0
+
 This repository includes the `CITATION.cff` metadata used by GitHub and Zenodo
-to identify the software title, authors, affiliation, version, and release
-date. A GitHub-to-Zenodo integration requires the GitHub repository to be
-public. After linking the GitHub account to Zenodo and enabling this
-repository, creating a GitHub release such as `v1.0.0` triggers a Zenodo
-software record and DOI.
+to identify the software title, authors, affiliation, version, release date,
+and DOI. Future GitHub releases are archived automatically while the Zenodo
+integration remains enabled.
 
 If the repository must remain private, a selected software archive can instead
 be uploaded manually to Zenodo. In either case, verify that all included
 hardware conversion files may be redistributed, identify the mixed MIT and
 research-only licensing accurately, and preserve the upstream citations and
-EULA. After Zenodo assigns a DOI, add that DOI to `CITATION.cff` and update the
-preferred citation.
+EULA. Update `CITATION.cff` and the preferred citation whenever a future
+release receives a new version-specific DOI.
 
 In addition to the primary citation for this adaptation, cite the original
 Radboud driving-system software and the underlying masking component:
