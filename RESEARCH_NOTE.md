@@ -156,7 +156,7 @@ licensing, and citation requirements [11,12].
 
 Apochi, O., & Axmacher, N. (2026). *Focused Ultrasound Driving System with Synchronized Auditory
 Masking for Active and Sham Entorhinal Cortex Stimulation* (Version 1.0.0)
-[Computer software]. https://doi.org/10.5281/zenodo.22059704
+[Computer software]. Zenodo. https://doi.org/10.5281/zenodo.22059704
 
 ## References
 

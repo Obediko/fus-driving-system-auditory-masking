@@ -132,7 +132,7 @@ Run the regression tests with:
 python -m unittest fus_driving_systems.tests.test_auditory_masking -v
 ```
 
-The current test suite contains 19 checks for timing, 450-pulse protocol
+The current test suite contains 21 checks for timing, 450-pulse protocol
 settings, reproducible active/sham masks, safe sham behavior, missing audio
 output, headphone-calibration gates, file-integrity checks, and error cleanup.
 
@@ -142,7 +142,7 @@ When using this integrated Dortmund auditory-masking workflow, cite:
 
 > Apochi, O., & Axmacher, N. (2026). *Focused Ultrasound Driving System with Synchronized
 > Auditory Masking for Active and Sham Entorhinal Cortex Stimulation*
-> (Version 1.0.0) [Computer software].
+> (Version 1.0.0) [Computer software]. Zenodo.
 > https://doi.org/10.5281/zenodo.22059704
 
 GitHub can generate a formatted software citation from
@@ -150,6 +150,11 @@ GitHub can generate a formatted software citation from
 [`REFERENCES.bib`](REFERENCES.bib). The scientific rationale, implementation,
 limitations, and cited literature are presented in the accompanying research
 note, [`RESEARCH_NOTE.md`](RESEARCH_NOTE.md).
+
+The same citation and DOI are also exposed by the Python package, displayed in
+the auditory-masking interface, and included in exported waveform metadata and
+session results. The upstream masking DOI remains separately identified in
+each waveform metadata file.
 
 This citation identifies the author of the integrated adaptation. It does not
 replace citation of the underlying Radboud software or the separately licensed
@@ -298,9 +303,17 @@ This project is facilitated by the Radboud Focused Ultrasound Initiative. For mo
 
 ## ✒️ How to cite <a name="how-to-cite"></a>
 
-If you use this package in your research or project, please cite it as follows:
+For the integrated Dortmund auditory-masking adaptation, cite:
+
+Apochi, O., & Axmacher, N. (2026). *Focused Ultrasound Driving System with Synchronized Auditory Masking for Active and Sham Entorhinal Cortex Stimulation* (Version 1.0.0) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.22059704
+
+For the original Radboud driving-system package, additionally cite:
 
 Margely Cornelissen, Stein Fekkes (Radboud University, Nijmegen, The Netherlands) & Erik Dumont (Image Guided Therapy, Pessac, France) (2024-2025), Radboud FUS Driving System Software (version 2.2)
+
+For the separately licensed auditory-mask generator, additionally cite:
+
+Musarrat, H., & Kop, B. (2026). *Auditory Mask Generator: NeuroFUS Edition* [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.20681923
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

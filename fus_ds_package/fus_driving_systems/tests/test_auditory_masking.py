@@ -12,7 +12,11 @@ from fus_driving_systems.auditory_masking import (
     MaskedIGTSession,
     MaskingConfig,
     MaskingPlaybackError,
+    SOFTWARE_AUTHORS,
+    SOFTWARE_CITATION,
+    SOFTWARE_DOI,
     SoundDevicePlayer,
+    UPSTREAM_MASKING_DOI,
     generate_mask,
     load_mask,
     save_mask,
@@ -156,6 +160,19 @@ class AuditoryMaskingTests(unittest.TestCase):
             self.assertEqual(metadata["expected_pulses"], 5)
             self.assertEqual(metadata["audio_sha256"], original.audio_sha256)
             self.assertEqual(restored.audio_sha256, original.audio_sha256)
+
+    def test_published_software_citation_is_exposed(self):
+        self.assertEqual(SOFTWARE_AUTHORS, ("Apochi Obed", "Nikolai Axmacher"))
+        self.assertEqual(SOFTWARE_DOI, "10.5281/zenodo.22059704")
+        self.assertIn("Apochi, O., & Axmacher, N.", SOFTWARE_CITATION)
+        self.assertIn(f"https://doi.org/{SOFTWARE_DOI}", SOFTWARE_CITATION)
+
+    def test_exported_metadata_preserves_adaptation_and_upstream_dois(self):
+        metadata = generate_mask(self.config).metadata()
+        self.assertEqual(metadata["software_doi"], SOFTWARE_DOI)
+        self.assertEqual(metadata["software_authors"], list(SOFTWARE_AUTHORS))
+        self.assertEqual(metadata["software_citation"], SOFTWARE_CITATION)
+        self.assertEqual(metadata["source_doi"], UPSTREAM_MASKING_DOI)
 
     def test_tampered_wav_is_rejected(self):
         original = generate_mask(self.config)

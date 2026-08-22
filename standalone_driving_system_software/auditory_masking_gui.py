@@ -12,6 +12,9 @@ from tkinter import filedialog, messagebox, ttk
 
 from fus_driving_systems.auditory_masking import (
     MaskingConfig,
+    SOFTWARE_AUTHORS,
+    SOFTWARE_CITATION,
+    SOFTWARE_DOI,
     SoundDevicePlayer,
     generate_mask,
     save_mask,
@@ -75,7 +78,12 @@ class AuditoryMaskingApp:
             container,
             text="Research use only. Identical frozen audio is required for active and sham visits.",
             foreground="#5c5c5c",
-        ).pack(anchor="w", pady=(3, 10))
+        ).pack(anchor="w", pady=(3, 2))
+        ttk.Label(
+            container,
+            text=f"{' and '.join(SOFTWARE_AUTHORS)} | DOI: {SOFTWARE_DOI}",
+            foreground="#365a7c",
+        ).pack(anchor="w", pady=(0, 10))
 
         protocol = ttk.LabelFrame(container, text="Ultrasound-matched timing", padding=5)
         protocol.pack(fill="x", pady=5)
@@ -137,6 +145,7 @@ class AuditoryMaskingApp:
 
         self.status = tk.Text(container, height=12, wrap="word", state="disabled")
         self.status.pack(fill="both", expand=True, pady=(2, 0))
+        self._message(f"Software citation: {SOFTWARE_CITATION}")
         self._message("Default condition is sham. No ultrasound is emitted during sham.")
         self._message(f"Configuration file: {CONFIG_PATH}")
 

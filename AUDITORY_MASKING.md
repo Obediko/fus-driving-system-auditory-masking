@@ -11,7 +11,7 @@ The primary citation for the integrated implementation is:
 
 > Apochi, O., & Axmacher, N. (2026). *Focused Ultrasound Driving System with Synchronized
 > Auditory Masking for Active and Sham Entorhinal Cortex Stimulation*
-> (Version 1.0.0) [Computer software].
+> (Version 1.0.0) [Computer software]. Zenodo.
 > https://doi.org/10.5281/zenodo.22059704
 
 ## Fixed protocol and default waveform

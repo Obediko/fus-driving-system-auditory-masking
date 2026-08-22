@@ -26,16 +26,30 @@ SOFTWARE.
 **Attribution Notice**:
 If you use this kit in your research or project, please refer to the 'How to Cite' section in the
 README.md file of https://github.com/Donders-Institute/Radboud-FUS-driving-system-software.
+
+Integrated Dortmund auditory-masking adaptation:
+Apochi, O., & Axmacher, N. (2026). Focused Ultrasound Driving System with
+Synchronized Auditory Masking for Active and Sham Entorhinal Cortex Stimulation
+(Version 1.0.0) [Computer software]. Zenodo.
+https://doi.org/10.5281/zenodo.22059704
 """
 
 from setuptools import setup, find_packages
 
 setup(name='fus_driving_systems',
       version='2.2.3',
-      description='Abstract structure to communicate with different FUS driving systems',
-      url='https://github.com/Donders-Institute/Radboud-FUS-driving-system-software',
+      description='Focused-ultrasound driving systems with synchronized research-only auditory masking',
+      url='https://github.com/Obediko/fus-driving-system-auditory-masking',
       author='Margely Cornelissen',
       author_email='margely.cornelissen@ru.nl',
+      maintainer='Apochi Obed and Nikolai Axmacher',
+      project_urls={
+          'Published adaptation DOI': 'https://doi.org/10.5281/zenodo.22059704',
+          'Zenodo software record': 'https://zenodo.org/records/22059704',
+          'Adaptation source': 'https://github.com/Obediko/fus-driving-system-auditory-masking',
+          'Upstream Radboud driver': 'https://github.com/Donders-Institute/Radboud-FUS-driving-system-software',
+          'Upstream auditory masking DOI': 'https://doi.org/10.5281/zenodo.20681923',
+      },
       packages=find_packages(),
       package_data={'fus_driving_systems': ['config/*', 'igt/config/imasonic_transducers/*',
                                             'igt/config/sonic_concepts_transducers/*',

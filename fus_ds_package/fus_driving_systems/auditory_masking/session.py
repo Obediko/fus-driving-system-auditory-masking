@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 import time
 
+from .citation import SOFTWARE_CITATION, SOFTWARE_DOI
 from .config import MaskingConfig
 from .engine import SoundDevicePlayer, generate_mask
 
@@ -22,6 +23,8 @@ class SessionResult:
 
     def to_dict(self, reveal_condition=False):
         output = {
+            "software_doi": SOFTWARE_DOI,
+            "software_citation": SOFTWARE_CITATION,
             "condition": self.condition if reveal_condition else "masked",
             "audio_sha256": self.audio_sha256,
             "expected_pulses": self.expected_pulses,

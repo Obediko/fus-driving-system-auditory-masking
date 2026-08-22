@@ -14,6 +14,15 @@ import numpy as np
 from scipy.io import wavfile
 
 from ._vendor.session_controller import SessionController
+from .citation import (
+    SOFTWARE_AUTHORS,
+    SOFTWARE_CITATION,
+    SOFTWARE_DOI,
+    SOFTWARE_DOI_URL,
+    SOFTWARE_TITLE,
+    SOFTWARE_VERSION,
+    UPSTREAM_MASKING_DOI,
+)
 from .config import MaskingConfig
 
 
@@ -64,8 +73,14 @@ class GeneratedMask:
         return {
             "format_version": 1,
             "created_utc": datetime.now(timezone.utc).isoformat(),
+            "software_title": SOFTWARE_TITLE,
+            "software_authors": list(SOFTWARE_AUTHORS),
+            "software_version": SOFTWARE_VERSION,
+            "software_doi": SOFTWARE_DOI,
+            "software_doi_url": SOFTWARE_DOI_URL,
+            "software_citation": SOFTWARE_CITATION,
             "source": "Musarrat and Kop, Auditory Mask Generator, adapted for Radboud IGT",
-            "source_doi": "10.5281/zenodo.20681923",
+            "source_doi": UPSTREAM_MASKING_DOI,
             "sample_rate_hz": self.sample_rate_hz,
             "channels": int(self.audio.shape[1]) if self.audio.ndim > 1 else 1,
             "samples": int(len(self.audio)),
