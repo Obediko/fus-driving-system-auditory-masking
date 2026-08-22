@@ -1,0 +1,3 @@
+cd C:\Users\Neuro\FUS\Radboud-FUS-driving-system-software
+& C:\Users\Neuro\Envs\FUS_DS_PACKAGE\Scripts\Activate.ps1
+spyder

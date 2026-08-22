@@ -1,0 +1,10 @@
+CTkMessagebox==2.7
+numpy==2.1.0
+pandas==2.2.2
+pyserial==3.5
+tk==0.1.0
+openpyxl==3.1.5
+scipy==1.14.1
+sounddevice>=0.4.6,<1.0
+spyder==6.0.3
+./fus_ds_package

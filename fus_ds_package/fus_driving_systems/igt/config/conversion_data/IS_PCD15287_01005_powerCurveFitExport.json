@@ -1,0 +1,22 @@
+{
+  "calibrationSource": "Dortmund/IfADo natural-focus measurements for IS_PCD15287_01005",
+  "notes": "Direct 10-50% pressure measurements plus the established Dortmund 100% = 1725 kPa anchor; piecewise-linear interpolation only.",
+  "input": "free-water peak pressure at natural focus [Pa]",
+  "output": "amplitude setpoint [%]",
+  "data": {
+    "x": [0, 181020, 362510, 538640, 708290, 877400, 1725000],
+    "y": [0, 10, 20, 30, 40, 50, 100]
+  },
+  "FitParams": {
+    "form": "pp",
+    "breaks": [0, 181020, 362510, 538640, 708290, 877400, 1725000],
+    "coefs": [
+      [0.00005524251463926638, 0.0],
+      [0.000055099454515400294, 10.0],
+      [0.00005677624481916766, 20.0],
+      [0.000058944886531093426, 30.0],
+      [0.00005913310862752055, 40.0],
+      [0.00005899008966493629, 50.0]
+    ]
+  }
+}

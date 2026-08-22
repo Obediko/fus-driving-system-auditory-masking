@@ -1,0 +1,20 @@
+{
+  "calibrationSource": "Dortmund/IfADo ten-channel voltage measurements for IS_PCD15287_01005",
+  "notes": "Uses the measured mean across elements at 0, 25, 50, 75 and 100% amplitude; piecewise-linear interpolation only.",
+  "input": "mean channel voltage [V]",
+  "output": "amplitude setpoint [%]",
+  "data": {
+    "x": [0, 4.244, 8.28, 12.42, 16.36],
+    "y": [0, 25, 50, 75, 100]
+  },
+  "FitParams": {
+    "form": "pp",
+    "breaks": [0, 4.244, 8.28, 12.42, 16.36],
+    "coefs": [
+      [5.89066918001885, 0.0],
+      [6.194251734390487, 25.0],
+      [6.038647342995168, 50.0],
+      [6.34517766497462, 75.0]
+    ]
+  }
+}

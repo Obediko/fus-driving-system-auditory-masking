@@ -1,0 +1,234 @@
+# -*- coding: utf-8 -*-
+"""
+Copyright (c) 2024 Margely Cornelissen, Stein Fekkes (Radboud University) and Erik Dumont (Image
+Guided Therapy)
+
+MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+**Attribution Notice**:
+If you use this kit in your research or project, please refer to the 'How to Cite' section in the
+README.md file of https://github.com/Donders-Institute/Radboud-FUS-driving-system-software.
+"""
+
+# Basic packages
+import sys
+
+# Miscellaneous packages
+import copy
+
+# Own packages
+from fus_driving_systems.config.config import config_info as config
+from fus_driving_systems.config.logging_config import logger
+from fus_driving_systems.utils import get_config_value
+
+
+class DrivingSystem:
+    """
+    Class representing ultrasound driving system information.
+
+    Attributes:
+        serial (str): Serial number of the driving system.
+        name (str): Name of the driving system.
+        manufact (str): Name of the manufacturer.
+        available_ch (int): Number of available channels with chosen configuration.
+        connect_info (str): Connection information for the driving system, either COM port (SC) or
+        config. file (IGT).
+        tran_comp (List[str]): List of transducers the driving system is compatible with.
+        power_options (List[str]): List of power options compatible with the driving system.
+        require_conv_eq (bool.): determines if pressure conversion equations are required or
+            pressure can be used as a direct input.
+        is_active (Boolean): Indication if the driving system is used with the code.
+    """
+
+    def __init__(self):
+        """
+        Initializes a DrivingSystem object with default values.
+
+        """
+
+        self.serial = None
+        self.name = None
+        self.manufact = None
+        self.available_ch = 0
+        self.connect_info = None
+        self.tran_comp = None
+        self.power_options = None
+        self.require_conv_eq = False
+        self.is_active = True
+
+    def set_ds_info(self, serial):
+        """
+        Sets the driving system based on the provided serial number.
+
+        Parameters:
+            serial (str): Serial number of the driving system.
+        """
+
+        self.serial = serial
+        section = 'Equipment.Driving system.' + serial
+        self.name = get_config_value(logger, config, section, 'Name', 'Unknown driving system name')
+        self.manufact = get_config_value(logger, config, section, 'Manufacturer',
+                                         'Unknown driving system manufacturer')
+        self.available_ch = int(get_config_value(logger, config, section, 'Available channels',
+                                                 0))
+        self.connect_info = get_config_value(logger, config, section, 'Connection info', None, True)
+        self.tran_comp = get_config_value(logger, config, section, 'Transducer compatibility',
+                                          '').split('\n')
+        self.power_options = get_config_value(logger, config, section, 'Power options',
+                                              '').split('\n')
+        self.require_conv_eq = get_config_value(logger, config, section,
+                                                'Requires conversion equations?', 'False') == 'True'
+        self.is_active = get_config_value(logger, config, section, 'Active?', 'True') == 'True'
+
+    def __str__(self):
+        """
+        Returns a formatted string containing information about the driving system.
+
+        Returns:
+            str: Formatted information about the driving system.
+        """
+
+        info = ''
+        info += f"Driving system serial number: {self.serial} \n "
+        info += f"Driving system name: {self.name} \n "
+        info += f"Driving system manufacturer: {self.manufact} \n "
+        info += f"Driving system available channels: {self.available_ch} \n "
+        info += f"Driving system connection info: {self.connect_info} \n "
+
+        tran_comp = '\n '.join(self.tran_comp)
+        info += f"Driving system tranducer compatibility: {tran_comp} \n "
+
+        power_options = '\n '.join(self.power_options)
+        info += f"Driving system power options: {power_options} \n "
+        info += ("Driving system requires conversion equations?: " +
+                 f"{self.require_conv_eq} \n ")
+
+        return info
+
+    def clone(self):
+        """
+        Creates and returns a new instance of the DrivingSystem class with the same attribute
+        values.
+
+        The new instance is a deep copy of the current instance, ensuring that changes to the cloned
+        object do not affect the original object.
+
+        Returns:
+            CharacSequence: A new instance of the DrivingSystem class with copied attribute values.
+        """
+
+        new_instance = DrivingSystem()
+        new_instance.__dict__ = copy.deepcopy(self.__dict__)  # Copy all attributes
+        return new_instance
+
+
+def get_ds_serials():
+    """
+    Returns a list of serial numbers for available driving systems.
+
+    Returns:
+        List[str]: Serial numbers for available driving systems.
+    """
+
+    serial_ds = get_config_value(logger, config, 'Equipment', 'Driving systems', '',
+                                 True).split('\n')
+
+    active_serials = []
+    for serial in serial_ds:
+        # only extract active driving systems
+        section = 'Equipment.Driving system.' + serial
+        if get_config_value(logger, config, section, 'Active?', 'True') == 'True':
+            active_serials.append(serial)
+
+    if len(active_serials) < 1:
+        message = 'No active driving systems found in configuration file.'
+        logger.critical(message)
+        sys.exit(message)
+
+    return active_serials
+
+
+def get_ds_names():
+    """
+    Returns a list of names of available driving systems.
+
+    Returns:
+        List[str]: Names of available driving systems.
+    """
+
+    names = []
+    for serial in get_ds_serials():
+        section = 'Equipment.Driving system.' + serial
+        ds_name = get_config_value(logger, config, section, 'Name', 'Unknown driving system name')
+        names.append(ds_name)
+
+    if len(names) < 1:
+        message = 'No driving systems found in configuration file.'
+        logger.critical(message)
+        sys.exit(message)
+
+    return names
+
+
+def get_ds_list():
+    """
+    Returns a list of available driving system objects.
+
+    Returns:
+        List[Obj]: Objects of available driving systems.
+    """
+
+    ds_list = []
+    for serial in get_ds_serials():
+        try:
+            ds = DrivingSystem()
+            ds.set_ds_info(serial)
+        except KeyError:
+            message = (f'No driving system with serial number {serial} found in' +
+                       ' configuration file.')
+            logger.critical(message)
+            sys.exit(message)
+
+        ds_list.append(ds)
+
+    if len(ds_list) < 1:
+        message = 'No driving systems found in configuration file.'
+        logger.critical(message)
+        sys.exit(message)
+
+    return ds_list
+
+
+def get_serial_from_name(name):
+    """
+    Returns the serial number matching the given name.
+
+    Args:
+        name (str): The name of the device.
+
+    Returns:
+        str: The serial number, or None if no match is found.
+    """
+
+    for ds in get_ds_list():
+        if ds.name == name:
+
+            return ds.serial
